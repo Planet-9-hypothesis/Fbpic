@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fbpic | Download Facebook Profile Picture HD 2026</title>
+    
+    <!-- Strategic SEO Meta Tags -->
+    <meta name="description" content="fbpic is the premier 2026 tool to download Facebook profile pictures in 2048px Ultra HD. Secure, anonymous, and no login required. Works on all devices.">
+    <meta name="keywords" content="fbpic, facebook profile picture downloader, save fb pfp hd, download facebook dp, high resolution facebook profile 2026">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph for Social Presence -->
+    <meta property="og:title" content="fbpic | Ultimate HD Facebook Profile Downloader">
+    <meta property="og:description" content="Extract original high-resolution Facebook display pictures in seconds.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
+
+        :root {
+            --fb-primary: #0866FF;
+            --fb-gradient: linear-gradient(135deg, #0866FF 0%, #003285 100%);
+        }
+
+        body {
+            background: radial-gradient(circle at 50% 0%, #0a469e 0%, #05162e 100%);
+            min-height: 100vh;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 32px;
+            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.6);
+            color: #1c1e21;
+        }
+
+        .btn-gradient {
+            background: var(--fb-gradient);
+            color: white;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .btn-gradient:hover:not(:disabled) {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(8, 102, 255, 0.4);
+            filter: brightness(1.1);
+        }
+
+        /* Branding: fp Logo */
+        .fp-logo {
+            background: var(--fb-gradient);
+            width: 68px;
+            height: 68px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 2.2rem;
+            color: white;
+            margin: 0 auto 1.2rem;
+            box-shadow: 0 12px 24px rgba(8, 102, 255, 0.4);
+            text-transform: lowercase;
+        }
+
+        .profile-ring {
+            padding: 8px;
+            background: var(--fb-gradient);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .seo-section {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            border-radius: 28px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-up { animation: fadeInUp 0.5s ease-out forwards; }
+
+        #fullscreenOverlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.96);
+            z-index: 1000;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(20px);
+        }
+
+        .input-group:focus-within {
+            border-color: var(--fb-primary);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(8, 102, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="items-center p-6 pt-16">
+
+    <!-- Branding Header -->
+    <header class="text-center mb-12 animate-up">
+        <div class="fp-logo">fp</div>
+        <h1 class="text-4xl font-extrabold tracking-tight mb-2">fb<span class="text-blue-400">pic</span></h1>
+        <p class="text-blue-200/60 max-w-sm mx-auto text-sm font-medium">Ultra High-Definition Profile Extraction</p>
+    </header>
+
+    <!-- App Main Container -->
+    <main class="main-card w-full max-w-xl p-8 sm:p-12 animate-up mb-16" style="animation-delay: 0.1s;">
+        
+        <!-- Input State -->
+        <div id="searchState">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Download in Highest Quality</h2>
+            <div class="space-y-6">
+                <div class="input-group flex items-center px-6 py-5 bg-gray-100 rounded-2xl border-2 border-transparent transition-all">
+                    <i class="fas fa-link text-gray-400 mr-4 text-xl"></i>
+                    <input 
+                        type="text" 
+                        id="fbUrl" 
+                        placeholder="Paste profile link (e.g. facebook.com/zuck)" 
+                        class="bg-transparent w-full text-lg text-gray-800 focus:outline-none placeholder-gray-400"
+                    >
+                </div>
+
+                <button 
+                    onclick="extractHD()" 
+                    id="actionBtn"
+                    class="btn-gradient w-full py-5 rounded-2xl font-bold text-xl flex items-center justify-center gap-3 shadow-lg"
+                >
+                    <i class="fas fa-bolt"></i>
+                    <span>Fetch HD Image</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Success Result State -->
+        <div id="resultState" class="hidden text-center space-y-8 py-4">
+            <div class="profile-ring">
+                <img 
+                    id="pfpResult" 
+                    src="" 
+                    alt="fbpic HD Preview" 
+                    class="w-48 h-48 sm:w-64 sm:h-64 rounded-full object-cover border-4 border-white cursor-pointer hover:opacity-90 transition-opacity"
+                    onclick="openZoom()"
+                >
+            </div>
+
+            <div class="space-y-4">
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button 
+                        onclick="downloadFile()" 
+                        id="dlBtn"
+                        class="btn-gradient flex-1 py-5 rounded-2xl font-bold flex items-center justify-center gap-3"
+                    >
+                        <i class="fas fa-cloud-download-alt text-xl"></i> Save Image
+                    </button>
+                    <button 
+                        onclick="openZoom()" 
+                        class="bg-gray-100 text-gray-700 hover:bg-gray-200 flex-1 py-5 rounded-2xl font-bold transition-all text-lg"
+                    >
+                        View Full Size
+                    </button>
+                </div>
+
+                <button onclick="resetApp()" class="text-gray-400 hover:text-blue-600 transition-colors font-bold text-sm uppercase tracking-widest pt-2">
+                    <i class="fas fa-chevron-left mr-2"></i> Fetch New Profile
+                </button>
+            </div>
+        </div>
+
+        <!-- Error Handler -->
+        <div id="errorBox" class="hidden mt-6 p-5 bg-red-50 text-red-600 rounded-2xl text-sm border border-red-100 animate-up">
+            <div class="flex items-center">
+                <i class="fas fa-exclamation-triangle text-xl mr-3"></i>
+                <p class="font-semibold">Extraction Failed: Profile may be private or URL format is incorrect.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional SEO Information Section -->
+    <article class="w-full max-w-4xl seo-section p-8 sm:p-14 mb-16 animate-up" style="animation-delay: 0.2s;">
+        <h2 class="text-3xl font-extrabold mb-8 text-white text-center">Why Use fbpic for HD Downloads?</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-blue-100/70 leading-relaxed">
+            <section>
+                <h3 class="text-blue-400 font-bold mb-3 text-lg">Maximum HD Quality</h3>
+                <p>Most online tools only provide small thumbnails. <strong>fbpic</strong> uses advanced 2026 extraction technology to locate the original 2048px source file, ensuring you get the sharpest image possible.</p>
+            </section>
+            
+            <section>
+                <h3 class="text-blue-400 font-bold mb-3 text-lg">Strict Privacy Protocols</h3>
+                <p>We believe in anonymous access. fbpic does not require Facebook login, Oauth, or cookies. Your search history is never stored, and the image processing happens entirely within your browser.</p>
+            </section>
+
+            <section>
+                <h3 class="text-blue-400 font-bold mb-3 text-lg">Cross-Platform Ready</h3>
+                <p>Whether you're on a modern smartphone or a desktop workstation, our responsive 2026 interface adapts to your screen. Compatible with iOS 19+, Android 16+, and all modern Chromium browsers.</p>
+            </section>
+
+            <section>
+                <h3 class="text-blue-400 font-bold mb-3 text-lg">No Hidden Limits</h3>
+                <p>Download as many profile pictures as you need. fbpic remains a free, community-driven tool designed to provide utility without annoying subscription pop-ups or data harvesting.</p>
+            </section>
+        </div>
+
+        <div class="mt-12 pt-8 border-t border-white/10 text-center">
+            <p class="text-blue-300 font-medium italic">"The fastest and most reliable Facebook profile extractor of 2026."</p>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-12 text-center text-blue-200/20 text-xs font-bold tracking-[0.4em] uppercase">
+        <p>&copy; 2026 fbpic Interactive | Secure Extraction Lab</p>
+    </footer>
+
+    <!-- Fullscreen Viewer Overlay -->
+    <div id="fullscreenOverlay" onclick="closeZoom()">
+        <button class="absolute top-8 right-8 text-white/40 hover:text-white text-4xl transition-colors">
+            <i class="fas fa-times-circle"></i>
+        </button>
+        <img id="zoomImg" src="" alt="fbpic Ultra HD View" class="max-h-[82vh] max-w-[92vw] rounded-2xl shadow-2xl border border-white/10">
+        <div class="mt-10">
+            <button onclick="event.stopPropagation(); downloadFile();" class="btn-gradient px-14 py-4 rounded-full font-bold text-lg shadow-2xl">
+                <i class="fas fa-download mr-3"></i> Save Original HD File
+            </button>
+        </div>
+    </div>
+    <script>
+        let currentImageId = "";
+        let currentHDUrl = "";
+
+        function extractHD() {
+            const urlInput = document.getElementById('fbUrl').value.trim();
+            const btn = document.getElementById('actionBtn');
+            const error = document.getElementById('errorBox');
+            
+            if (!urlInput) return;
+
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Extracting HD Source...`;
+            error.classList.add('hidden');
+
+            try {
+                let id = "";
+                // Logic to handle multiple URL formats (ID-based or username-based)
+                if (urlInput.includes("id=")) {
+                    id = new URL(urlInput.includes('http') ? urlInput : 'https://' + urlInput).searchParams.get("id");
+                } else {
+                    const clean = urlInput
+  .replace('m.facebook.com', 'facebook.com')
+  .split('?')[0]
+  .replace(/\/$/, '');
+                    id = clean.substring(clean.lastIndexOf('/') + 1);
+                }
+
+                if (!id) throw new Error();
+
+                currentHDUrl = `https://graph.facebook.com/${id}/picture?width=2048&height=2048`;
+                currentImageId = id;
+
+                const pfp = document.getElementById('pfpResult');
+                const zoomImg = document.getElementById('zoomImg');
+                
+                const imgLoader = new Image();
+                imgLoader.crossOrigin = "anonymous";
+                
+                imgLoader.onload = () => {
+                    pfp.src = currentHDUrl;
+                    zoomImg.src = currentHDUrl;
+                    document.getElementById('searchState').classList.add('hidden');
+                    document.getElementById('resultState').classList.remove('hidden');
+                    btn.disabled = false;
+                    btn.innerHTML = `<i class="fas fa-bolt"></i> Fetch HD Image`;
+                };
+
+                imgLoader.onerror = () => {
+                    error.classList.remove('hidden');
+                    btn.disabled = false;
+                    btn.innerHTML = `<i class="fas fa-bolt"></i> Fetch HD Image`;
+                };
+
+                imgLoader.src = currentHDUrl;
+
+            } catch (err) {
+                error.classList.remove('hidden');
+                btn.disabled = false;
+                btn.innerHTML = `<i class="fas fa-bolt"></i> Fetch HD Image`;
+            }
+        }
+
+        // Canvas-to-DataURL Method for Force-Download
+        function downloadFile() {
+    const link = document.createElement('a');
+    link.href = currentHDUrl;
+    link.download = `fbpic-hd-${currentImageId}.jpg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+        function openZoom() {
+            document.getElementById('fullscreenOverlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeZoom() {
+            document.getElementById('fullscreenOverlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function resetApp() {
+            document.getElementById('resultState').classList.add('hidden');
+            document.getElementById('searchState').classList.remove('hidden');
+            document.getElementById('fbUrl').value = '';
+            document.getElementById('errorBox').classList.add('hidden');
+        }
+
+        document.getElementById('fbUrl').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') extractHD();
+        });
+    </script>
+</body>
+</html>
